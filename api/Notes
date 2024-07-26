@@ -1,0 +1,42 @@
+Speaker 1 (00:01)
+All right. Welcome back, everyone. So today we will continue with building our APIs with. Netcore. 
+So efcore or Entity Framework Core. So as you know, this is from Microsoft, and this allows us to interact with our database without having to write SQL. 
+EF Core basically eliminates the need for most of the data access code. And this is pretty lightweight. It's not too heavy on our system. It enables us as developers to abstract some of the stuff that we don't really need to know when we're interacting with databases, and it makes it easier for us to write code when we need to build our APIs. And it uses what it's called object relational mapping. You'll hear that a lot, or RM. So EF core allows developers to work with data in the form of. Net objects and relationships. 
+
+Developers don't need to directly deal with the underlying database schema, meaning we don't have to go in and do like Google Excel sheet or Google Sheets. We're able to actually just write a piece of code, have that translated to sequel, and it's done by... It's actually link.
+
+Speaker 1 (01:30)
+It's the language that does that for us. And it's part of EF core. So let's see what else. And some of this stuff we're going to play with, and you guys will see in real real-time. But the database abstraction, meaning we don't have to deal with SQL, and also allows us to support any server. Right now, as you guys know, we're using SQL light because we haven't gotten our Azure accounts yet. But with EF core, you're able to use or connect to any type of database. So depending on your career, you might be working with SQL Server, MySQL, Post SQL, SQL Lite, and there's a couple of different ones, right? So with. Net and EF Core, you're able to use any of those or configure to any of those servers, right? And we do that by our connection strings. So our connection strings and doing our options and using DB, context, which you guys will see as we build our applications. Ef core provides a consistent API for interacting with different database providers. Yeah, that's basically the same thing. And we can switch database provide without changing much of our application code, which makes it simple.
+
+Speaker 1 (02:47)
+So we're going to start with SQL light, but let's say, for example, when we get our Azure accounts and we create our database in Azure, we don't have to write a whole new piece of code. We can just go in to our connection string and point to our new SQL Server instead of our SQL light. So it makes it super, super simple. And link support. As you guys know, Link has a whole bunch of different methods that we can use. And link requires or link queries are translated into SQL queries by EF core. So obviously, many different type of SQL servers or SQL, the syntax might be a little bit different of SQL. So link translates that into whatever language, SQL language we need to or syntax that we need to do. So we don't have to do that translation, right? What else? So EF core also does tracking for us. So anytime we update something, delete, it helps us do our code applications. And then this stuff, not all this you need to know, but it's nice to know. Also, it supports what we call code first or database first. So we will not be working with database first.
+
+Speaker 1 (04:06)
+We'll be working with code first, meaning we create our models, we migrate our models, we update our tables that way. But you can also do it with database first, where you generally import the database schema and then work off that. So that's done also out in the field. But we will be doing code first, not database first. I'm assuming that would be because we might be having to work with somebody else's database that was created before we were able to write all the code. Yes, that's correct. Okay. So you'll see that. And it's not much different. They just give you everything already said, and you just have to build off that versus doing it from scratch, right? And it supports migrations through the CLI, which just makes things simple, meaning that any time we need to update something, we can just update and migrate it and then update it. You don't have to create a whole new piece of code. So So it allows developers to focus on more application, logic rather than database interaction, and it simplifies the data access and manipulation with on-net applications. And basically it's abstract, all the database, SQL, and things that normally developers used to have to deal with, and it was a whole bunch of code.
+
+Speaker 1 (05:20)
+So this minimizes the amount of code. But even though it does minimize the amount of code, it's still a lot. But can you imagine how much it was before. So that's it. Using EF core to not write SQL queries and then writing SQL queries in EF core. So some of the database developers work with. Net, and Sometimes just go in and they are frustrated. You can actually write sequel in. Net just to do a couple of queries. So sometimes they do go in there and write sequel queries because sometimes they don't want to deal with some of the syntax or if the syntax has been updated. But But stuff like that happens. But we'll learn more about that. And this is part of tomorrow's, but we'll see. All right. With that said, a lot of stuff. You don't really need to memorize any of that. That was just a quick info. That way, when we actually see it in the code, we can reference it back later. So let's go back to what the project that we were building. Let's see. Everybody pull up there. Vs Code and pull up the full stack that we were working on on Thursday, and we can go and get started.
+
+Speaker 1 (06:39)
+So, yes. Yes, that's what it is. So most of that stuff, like I said, we're going to review. It was just a quick overview of that. But everybody's here. Sherrod is here as well. Perfect. So everybody's here. Awesome. Let's see. All right, so everybody pull up their projects on VS Code. I'll give you guys a second to find it. It should be easy accessible. Close this, close this. And I'm going to pull up my notes in a different screen. So which one's it? So it's And controllers. All right, so let's review what we did last Thursday. So last Thursday, we... Why is my thing so slow? We started with creating a web application again, right? We did the. Net web API. We created a folder, full stack, created our API application with. Net new web API. We went ahead and cleared out our program. Cs of the weather API that it had. And then we went ahead and created our model, our first model here. And then this is going to shape the data of our student. So our student is going to have an ID, which is a type manager is going to have a name, string, address, phone number, and email.
+
+Speaker 1 (08:49)
+And we went ahead and made sure that we had all our extensions ready to go. And we launched it on Swagger. Make sure that that weather app worked first before we actually cleared it out. And we created our first model, but that's pretty much all we got through. So now let's just do a quick double check to make sure that we have all our packages installed that we need. And we're going to do that with our command palette, right? Let's see, because we did... Everybody has a new get package installed. So the first thing we are going to do is we're going to check to see if we have efCore installed. So there's one way to do that without having to go into our command palette. If we simply go to our app settings... Oh, not app settings, where is it? Our CS Proj. So API go in here, we can see what we have installed. I don't think we've installed it, so we need to install it now. So these are the packages that we have installed. So this comes with.
+
+
+Create Post --> New Todo Item
+Read Get --> Saved Todo List
+
+Update Put --> New Todo Item--> Saved Todo List
+
+Delete Delete --> 
+
+
+
+Terminal Migratioms --> 
+cd TodoAPI
+dotnet ef migrations add init
+
+Terminal Database --> 
+cd TodoAPI
+dotnet ef database update
