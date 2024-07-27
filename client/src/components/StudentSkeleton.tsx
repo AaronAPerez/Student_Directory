@@ -76,7 +76,7 @@ const StudentSkeleton = () => {
 
       </Box>
     </>
-  )
-}
+  );
+};
 
-export default StudentSkeleton
+export default StudentSkeleton;

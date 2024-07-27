@@ -7,20 +7,19 @@ using api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Controllers
-{
+namespace api.Controllers;
+
     [ApiController]
     [Route("api/[controller]")]
-    public class StudentsController : ControllerBase
+    public class StudentController : ControllerBase
     {
         private readonly AppDbContext _context;
-        public StudentsController(AppDbContext context)
+        public StudentController(AppDbContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-
         public async Task<IEnumerable<Student>> getStudent()
         {
             var students = await _context.Students.AsNoTracking().ToListAsync();
@@ -108,4 +107,4 @@ namespace api.Controllers
                 return BadRequest("Unable to update student");
         }
     }
-}
+

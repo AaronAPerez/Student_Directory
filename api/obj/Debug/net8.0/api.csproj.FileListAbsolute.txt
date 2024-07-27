@@ -254,3 +254,4 @@ C:\Users\aaper\Documents\.CodeStack Academy\Fullstack_Product_App\FULLSTACKL4\ap
 C:\Users\aaper\Documents\.CodeStack Academy\Fullstack_Product_App\FULLSTACKL4\api\obj\Debug\net8.0\api.pdb
 C:\Users\aaper\Documents\.CodeStack Academy\Fullstack_Product_App\FULLSTACKL4\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 C:\Users\aaper\Documents\.CodeStack Academy\Fullstack_Product_App\FULLSTACKL4\api\obj\Debug\net8.0\ref\api.dll
+C:\Users\aaper\Documents\.CodeStack Academy\Fullstack_Product_App\FULLSTACKL4\api\obj\Debug\net8.0\api.sourcelink.json
