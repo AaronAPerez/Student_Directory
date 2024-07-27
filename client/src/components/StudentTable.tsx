@@ -76,7 +76,7 @@ const StudentTable = () => {
           title: "Student Deleted.",
           description: "Student Deleted",
           status: "success",
-          duration: 3000,
+          duration: 4000,
           isClosable: true,
         })
         fetchData();
@@ -95,7 +95,7 @@ const StudentTable = () => {
           <Heading fontSize={25}>Student List</Heading>
           <Button
             onClick={() => handleAdd()}
-            color="teal.300"
+            color="cyan.400"
             leftIcon={<AddIcon />}
           >
             {" "}
@@ -104,7 +104,7 @@ const StudentTable = () => {
         </Flex>
 
         <TableContainer>
-          <Table variant="striped" colorScheme="teal">
+          <Table variant="striped" colorScheme="cyan">
             <Thead>
               <Tr>
                 <Th>Id</Th>
@@ -151,7 +151,7 @@ const StudentTable = () => {
                           </PopoverFooter>
                         </PopoverContent>
                       </Popover>
-                      <ViewIcon boxSize={23} color={"green.300"} />
+                      <ViewIcon boxSize={23} color={"green.400"} />
                     </HStack>
                   </Td>
                 </Tr>

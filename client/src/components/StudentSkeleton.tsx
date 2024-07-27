@@ -24,14 +24,14 @@ const StudentSkeleton = () => {
           <Heading>
             <Skeleton>Student List</Skeleton>
           </Heading>
-          <Button color="teal.300" leftIcon={<AddIcon />}>
+          <Button color="cyan.300" leftIcon={<AddIcon />}>
               {" "}
              <Skeleton>Add Student</Skeleton>
           </Button>
         </Flex>
 
         <TableContainer>
-            <Table variant="striped" colorScheme="teal">
+            <Table variant="striped" colorScheme="cyan">
             
               <Thead>
                 <Tr>

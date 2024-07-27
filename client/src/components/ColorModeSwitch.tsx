@@ -11,7 +11,7 @@ const ColorModeSwitch = () => {
         <HStack justifyContent={"end"} m={5}>
             {/* NOTICE LIGHT AND DARK MODE TOGGLE AND TURNERY */}
             {/* <Switch isChecked={colorMode === 'dark'} onChange={toggleColorMode}/> */}
-            {colorMode === 'dark' ? <Text whiteSpace={"nowrap"}><MoonIcon onClick={toggleColorMode} m={3} />Dark</Text> : <Text whiteSpace={"nowrap"}><SunIcon onClick={toggleColorMode} m={3} />Light</Text> }
+            {colorMode === 'dark' ? <Text whiteSpace={"nowrap"}><MoonIcon onClick={toggleColorMode} m={3} cursor={"pointer"} />Dark</Text> : <Text whiteSpace={"nowrap"}><SunIcon onClick={toggleColorMode} m={3} cursor={"pointer"} />Light</Text> }
         </HStack>
     </>
   )

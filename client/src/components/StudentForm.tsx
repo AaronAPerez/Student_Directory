@@ -43,9 +43,9 @@ interface StudentFormProps {
     const onSave = () => {
       if(currentData?.id)
       {
-        editStudent()
+        editStudent();
       }else{
-        addStudent()
+        addStudent();
       }
   
     };
@@ -125,7 +125,7 @@ interface StudentFormProps {
             <Button colorScheme="red" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button onClick={onSave} colorScheme="teal">
+            <Button onClick={onSave} colorScheme="green">
               Save
             </Button>
           </ModalFooter>
