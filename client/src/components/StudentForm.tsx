@@ -28,80 +28,85 @@ interface StudentFormProps {
 }
 
 
-  const StudentForm = ({
-    isOpen,
-    onClose,
-    fetchStudent,
-    currentData,
-  }: StudentFormProps) => {
-    const toast = useToast();
-    const [student, setStudent] = useState({
-      id:currentData?.id || 0,
-      name:currentData?.name || "",
-      description:currentData?.description || "",
-    });
-    const onSave = () => {
-      if(currentData?.id)
-      {
-        editStudent();
-      }else{
-        addStudent();
-      }
-  
-    };
+const StudentForm = ({
+  isOpen,
+  onClose,
+  fetchStudent,
+  currentData,
+}: StudentFormProps) => {
 
-      const editStudent = () => {
-        axios
-          .put(BASE_URL + "Student/" + currentData?.id,student)
-          .then(() => {
-            onClose();
-            fetchStudent();
-            toast({
-              title: "Student Updated.",
-              description: "Student Updated Successfully",
-              status: "success",
-              duration: 3000,
-              isClosable: true,
-            });
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
-    
-      const addStudent = () => {
-        axios
-          .post(BASE_URL + "Student", student)
-          .then((response) => {
-            onClose();
-            fetchStudent();
-            toast({
-              title: "Student Added.",
-              description: "Student Added Successfully",
-              status: "success",
-              duration: 3000,
-              isClosable: true,
-            });
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-    
-        console.log(student);
-        };
+  const toast = useToast();
+
+  const [student, setStudent] = useState({
+    id: currentData?.id || 0,
+    name: currentData?.name || "",
+    address: currentData?.address || "",
+    phoneNumber: currentData?.phoneNumber || "",
+    email: currentData?.email || "",
+  });
+
+  const onSave = () => {
+    if (currentData?.id) {
+      editStudent();
+    } else {
+      addStudent();
+    }
+  };
+
+  const editStudent = () => {
+    axios
+      .put(BASE_URL + "/" + currentData?.id, student)
+      .then(() => {
+        onClose();
+        fetchStudent();
+        toast({
+          title: "Student Updated.",
+          description: "Student updated successfully.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const addStudent = () => {
+    axios
+      .post(BASE_URL + "Student", student)
+      .then((response) => {
+        onClose();
+        fetchStudent();
+        toast({
+          title: "Student Added.",
+          description: "Student Added Successfully",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    console.log(student);
+  };
 
 
 
 
   return (
     <>
+
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Student</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack gap={3} alignItems={"self-start"}>
+              <Text>Name</Text>
               <Input
                 type="text"
                 placeholder="Name"
@@ -110,14 +115,32 @@ interface StudentFormProps {
                   setStudent({ ...student, name: e.target.value })
                 }
               />
+              <Text>Address</Text>
               <Textarea
-                placeholder="Description"
-                value={student.description}
+                placeholder="Address"
+                value={student.address}
                 onChange={(e) =>
-                  setStudent({ ...student, description: e.target.value })
+                  setStudent({ ...student, address: e.target.value })
                 }
               />
-   
+              <Text>Phone Number</Text>
+              <Input
+                type="text"
+                placeholder="Phone Number"
+                value={student.phoneNumber}
+                onChange={(e) =>
+                  setStudent({ ...student, phoneNumber: e.target.value })
+                }
+              />
+              <Text>E-mail</Text>
+              <Input
+                type="text"
+                placeholder="E-mail"
+                value={student.email}
+                onChange={(e) =>
+                  setStudent({ ...student, email: e.target.value })
+                }
+              />
             </VStack>
           </ModalBody>
 
@@ -125,7 +148,7 @@ interface StudentFormProps {
             <Button colorScheme="red" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button onClick={onSave} colorScheme="green">
+            <Button colorScheme="green" onClick={onSave}>
               Save
             </Button>
           </ModalFooter>
@@ -134,6 +157,5 @@ interface StudentFormProps {
     </>
   );
 };
-
 
 export default StudentForm
