@@ -5,12 +5,11 @@
 namespace api.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-        
             migrationBuilder.CreateTable(
                 name: "Students",
                 columns: table => new
